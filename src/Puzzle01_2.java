@@ -9,7 +9,7 @@ public class Puzzle01_2 {
         try {
             List<String> strings = Files.readAllLines(path);
             int finalResult = 0;
-            for (String line : strings){
+            for (String line : strings) {
                 String leftNum = "";
                 int index = 0;
                 while (leftNum.isEmpty()) {
@@ -28,15 +28,9 @@ public class Puzzle01_2 {
                 finalResult += result;
                 System.out.println(finalResult);
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        catch (
-                FileNotFoundException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
-
     }
 
     private static String findNum(String subString) {
