@@ -1,11 +1,11 @@
-import com.sun.jdi.Value;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
-import java.io.*;
-import java.util.Scanner;
-
-public class Main {
+public class Puzzle01_1 {
     public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\janha\\IdeaProjects\\aoc\\src\\input.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src\\input01.txt"))) {
             String line;
             int finalResult = 0;
             while ((line = br.readLine()) != null) {
@@ -36,8 +36,6 @@ public class Main {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
-
     }
 }
 
