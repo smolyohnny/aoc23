@@ -1,58 +1,55 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 
 public class Puzzle01_2 {
     public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new FileReader("src\\input01.txt"))) {
-            String line;
-            String fixLine;
+        Path path = Path.of("src\\input01.txt");
+        try {
+            List<String> strings = Files.readAllLines(path);
             int finalResult = 0;
-            while ((line = br.readLine()) != null) {
-                fixLine = line.replace("one", "1")
-                        .replace("two", "2")
-                        .replace("three", "3")
-                        .replace("four", "4")
-                        .replace("five", "5")
-                        .replace("six", "6")
-                        .replace("seven", "7")
-                        .replace("eight", "8")
-                        .replace("nine", "9");
-
-                fixLine.toCharArray();
-                char first = 0;
-                char last = 0;
-                String result;
-                for (int i = 0; i < fixLine.length(); i++) {
-                    if (fixLine.charAt(i) > 47 && fixLine.charAt(i) < 58) {
-                        first = fixLine.charAt(i);
-                        System.out.println(fixLine);
-                        System.out.println(first);
-                        break;
-                    }
+            for (String line : strings){
+                String leftNum = "";
+                int index = 0;
+                while (leftNum.isEmpty()) {
+                    String s = line.substring(0, index);
+                    leftNum = findNum(line.substring(0, index));
+                    index++;
+                }
+                String rightNum = "";
+                index = 0;
+                while (rightNum.isEmpty()) {
+                    rightNum = findNum(line.substring(line.length() - index, line.length()));
+                    index++;
                 }
 
-                for (int j = fixLine.length() - 1; j >= 0; j--) {
-                    if (fixLine.charAt(j) > 47 && fixLine.charAt(j) < 58) {
-                        last = fixLine.charAt(j);
-                        System.out.println(last);
-                        break;
-                    }
-                }
-
-                result = Character.toString(first) + Character.toString(last);
-                finalResult += Integer.parseInt(result);
+                int result = Integer.parseInt(leftNum + rightNum);
+                finalResult += result;
                 System.out.println(finalResult);
             }
         }
         catch (
-    FileNotFoundException ex) {
-        throw new RuntimeException(ex);
-    }
+                FileNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
         catch (IOException ex) {
-        throw new RuntimeException(ex);
+            throw new RuntimeException(ex);
+        }
+
     }
 
+    private static String findNum(String subString) {
+        subString = subString.replace("one", "1")
+                .replace("two", "2")
+                .replace("three", "3")
+                .replace("four", "4")
+                .replace("five", "5")
+                .replace("six", "6")
+                .replace("seven", "7")
+                .replace("eight", "8")
+                .replace("nine", "9")
+                .replaceAll("[^\\d.]", "");
+        return subString;
     }
 }
