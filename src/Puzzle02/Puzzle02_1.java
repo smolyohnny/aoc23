@@ -11,7 +11,7 @@ public class Puzzle02_1 {
         try{
             List <String> strings = Files.readAllLines(path);
             int finalResult = 0;
-
+            int powerResult = 0;
             for (String line : strings) {
                 String replaced = line.replace("Game ", "");
                 String[] noIDs = replaced.split(": ");
@@ -19,6 +19,7 @@ public class Puzzle02_1 {
                 int r = 0;
                 int g = 0;
                 int b = 0;
+
                 for (int i = 0; i < noSemi.length; i++) {
                     String[] ind = noSemi[i].split(", ");
                     for (int j = 0; j < ind.length; j++) {
@@ -31,11 +32,15 @@ public class Puzzle02_1 {
                     }
 
                 }
-                if (r < 12 && g < 13 && b < 14) {
+                int linePower = r * g * b;
+                powerResult += linePower;
+                if (r <= 12 && g <= 13 && b <= 14) {
                     finalResult += Integer.parseInt(noIDs[0]);
                 }
+                System.out.println(noIDs[0] + " " + finalResult);
             }
             System.out.println(finalResult);
+            System.out.println(powerResult);
         }
 
 
