@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Puzzle01_2 {
     public static void main(String[] args) {
-        Path path = Path.of("src\\input01.txt");
+        Path path = Path.of("src\\Puzzle01\\input01.txt");
         try {
             List<String> strings = Files.readAllLines(path);
             int finalResult = 0;

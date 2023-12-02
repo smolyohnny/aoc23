@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Puzzle01_1 {
     public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new FileReader("src\\input01.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src\\Puzzle01\\input01.txt"))) {
             String line;
             int finalResult = 0;
             while ((line = br.readLine()) != null) {
