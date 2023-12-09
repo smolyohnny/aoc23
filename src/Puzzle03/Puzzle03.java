@@ -46,8 +46,8 @@ public class Puzzle03 {
                 //---------------------------------------------------------------------------------------------
                 // part 2
 
-                int num1 = 0;
-                int num2 = 0;
+                String num1 = "";
+                String num2 = "";
                 position = 0;
                 boolean star = false;
 
@@ -58,7 +58,7 @@ public class Puzzle03 {
 
                     }
                     if (Character.isDigit(character)) {
-                        num1 = (num1 * 10) + Character.getNumericValue(character);
+                        num1 = String.valueOf((Integer.parseInt(num1) * 10) + Character.getNumericValue(character));
                         position = i;
 
                         if (lineNum != 0) lineUp = strings.get(lineNum - 1);
@@ -66,6 +66,20 @@ public class Puzzle03 {
 
                         if (isTouchingStar(lineUp, strings.get(lineNum), lineDown, position)) star = true;
 
+                        if (star) {
+                            if (Character.isDigit(line.charAt(i + 1))) {
+                                num2 = String.valueOf((Integer.parseInt(num2) * 10) + line.charAt(i + 1));
+                            }
+                            else if (Character.isDigit(strings.get(+1).charAt(i - 1))) {
+                                num2 = String.valueOf((Integer.parseInt(num2) * 10) + line.charAt(i + 1));
+                            }
+                            else if (Character.isDigit(strings.get(+1).charAt(i))) {
+                                num2 = String.valueOf((Integer.parseInt(num2) * 10) + line.charAt(i + 1));
+                            }
+                            else if (Character.isDigit(strings.get(+1).charAt(i+1))) {
+                                num2 = String.valueOf((Integer.parseInt(num2) * 10) + line.charAt(i + 1));
+                            }
+                        }
                     }
                 }
 
@@ -111,4 +125,5 @@ public class Puzzle03 {
 
         else return false;
     }
+
 }
