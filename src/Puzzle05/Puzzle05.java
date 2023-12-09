@@ -30,19 +30,20 @@ public class Puzzle05 {
 
                 for (int a = 0; a < seeds.length; a++) {
                     for (int i = 0; i < list.length; i++) {
-                        if (list[i].contains("seed-to-soil map:")) {
-                            for (int j = 1; j < list.length + 1; j++) {
-                                if (!list[i + j].contains("soil-to-fertilizer map:")) {
+                            for (int j = 0; j < list.length + 1; j++) {
+                                if (list[i + j].contains("seed-to-soil map:")) {
+                                    j++;
                                     map1.add(list[i + j]);
                                     for (int k = 0; k < map1.size(); k++) {
                                         String[] xy = map1.get(k).split(" ");
                                         if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
                                             seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                            break;
 
                                         }
                                     }
-                                } else if (!list[i + j].contains("fertilizer-to-water map:")) {
+
+                                } else if (list[i + j].contains("soil-to-fertilizer map:")) {
+                                    j++;
                                     map1.clear();
                                     map1.add(list[i + j]);
                                     for (int k = 0; k < map1.size(); k++) {
@@ -52,42 +53,46 @@ public class Puzzle05 {
                                             break;
                                         }
                                     }
-                                } else if (!list[i + j].contains("water-to-light map:")) {
+                                } else if (list[i + j].contains("fertilizer-to-water map:")) {
+                                    j++;
                                     map1.clear();
                                     map1.add(list[i + j]);
                                     for (int k = 0; k < list.length; k++) {
-                                        String[] xy = map1.get(j-1).split(" ");
+                                        String[] xy = map1.get(k).split(" ");
                                         if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
                                             seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
                                             break;
                                         }
                                     }
-                                } else if (!list[i + j].contains("light-to-temperature map:")) {
+                                } else if (list[i + j].contains("water-to-light map:")) {
+                                    j++;
                                     map1.clear();
                                     map1.add(list[i + j]);
                                     for (int k = 0; k < list.length; k++) {
-                                        String[] xy = map1.get(j-1).split(" ");
+                                        String[] xy = map1.get(k).split(" ");
                                         if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
                                             seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
                                             break;
                                         }
                                     }
-                                } else if (!list[i + j].contains("temperature-to-humidity map:")) {
+                                } else if (list[i + j].contains("light-to-temperature map:")) {
+                                    j++;
                                     map1.clear();
                                     map1.add(list[i + j]);
                                     for (int k = 0; k < list.length; k++) {
-                                        String[] xy = map1.get(j-1).split(" ");
+                                        String[] xy = map1.get(k).split(" ");
                                         if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
                                             seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
                                             break;
                                         }
                                     }
                                 }
-                                else {
+                                else if (list[i + j].contains("temperature-to-humidity map:")){
+                                    j++;
                                     map1.clear();
                                     map1.add(list[i + j]);
                                     for (int k = 0; k < list.length; k++) {
-                                        String[] xy = map1.get(j-1).split(" ");
+                                        String[] xy = map1.get(k).split(" ");
                                         if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
                                             seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
                                             break;
@@ -100,9 +105,10 @@ public class Puzzle05 {
 
                             }
                         }
-                    }
                     System.out.println(seeds[a]);
-                }
+                    }
+
+
 
                 System.out.println(Arrays.toString(seeds));
                 System.out.println(Arrays.toString(seedToSoil));
