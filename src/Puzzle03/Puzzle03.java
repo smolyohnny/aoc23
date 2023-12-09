@@ -84,7 +84,7 @@ public class Puzzle03 {
             if (lineUp.charAt(position - 1) != '.' && !Character.isDigit(lineUp.charAt(position - 1))) return true;
             if (lineDown.charAt(position - 1) != '.' && !Character.isDigit(lineUp.charAt(position - 1))) return true;
         }
-        if (position != 139) {
+        if (position != 9) {  //139
             if (lineMid.charAt(position + 1) != '.' && !Character.isDigit(lineMid.charAt(position + 1))) return true;
             if (lineUp.charAt(position + 1) != '.' && !Character.isDigit(lineUp.charAt(position + 1))) return true;
             if (lineDown.charAt(position + 1) != '.' && !Character.isDigit(lineUp.charAt(position + 1))) return true;
@@ -101,7 +101,7 @@ public class Puzzle03 {
             if (lineUp.charAt(position - 1) == '*' && !Character.isDigit(lineUp.charAt(position - 1))) return true;
             if (lineDown.charAt(position - 1) == '*' && !Character.isDigit(lineUp.charAt(position - 1))) return true;
         }
-        if (position != 139) {
+        if (position != 9) {   //139
             if (lineMid.charAt(position + 1) == '*' && !Character.isDigit(lineMid.charAt(position + 1))) return true;
             if (lineUp.charAt(position + 1) == '*' && !Character.isDigit(lineUp.charAt(position + 1))) return true;
             if (lineDown.charAt(position + 1) == '*' && !Character.isDigit(lineUp.charAt(position + 1))) return true;
