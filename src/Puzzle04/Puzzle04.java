@@ -16,21 +16,12 @@ public class Puzzle04 {
             int[] cardCount = new int[214];
             int[] matchCount = new int[214];
             List<String> strings = Files.readAllLines(path);
-<<<<<<< HEAD
-            int[] matches = new int[214];
-            int[] clonMatches = new int[matches.length];
-            for (String before : strings) {
-                int matchCount = 0;
-                String after = before.trim().replaceAll(" +", " ");
-                String[] strings2 = after.split("\\|");
-=======
             for (String list : strings) {
                 int counter = 0;
                 String awawa = list.trim().replaceAll(" +", " ");
 
                 String[] strings2 = awawa.split("\\|");
 
->>>>>>> bbbe5332d5721a102b27811adae93ec5077708f1
                 String[] winNums = strings2[0].replace("Card ", "").replace(":", "").split(" ");
 
                 String[] myNums = strings2[1].split(" ");
@@ -66,32 +57,23 @@ public class Puzzle04 {
                         myArr[i] = Integer.parseInt(myNums[i]);
                     }
                 }
-                    int result = 0;
+                int result = 0;
 
-                    for (int i = 1; i < winArr.length; i++) {
-                        for (int j = 0; j < myArr.length; j++) {
-                            if (winArr[i] == myArr[j]) {
-<<<<<<< HEAD
-                                matchCount++;
-=======
-                                counter++;
->>>>>>> bbbe5332d5721a102b27811adae93ec5077708f1
-                                if (result > 0) {
-                                    result *= 2;
-                                } else result += 1;
-                            }
+                for (int i = 1; i < winArr.length; i++) {
+                    for (int j = 0; j < myArr.length; j++) {
+                        if (winArr[i] == myArr[j]) {
+                            counter++;
+                            if (result > 0) {
+                                result *= 2;
+                            } else result += 1;
                         }
                     }
-
-                    finalResult += result;
-<<<<<<< HEAD
-                    int num = strings.indexOf(before);
-                    matches[num] = matchCount;
-=======
-                    matchCount[strings.indexOf(list)] = counter;
-
->>>>>>> bbbe5332d5721a102b27811adae93ec5077708f1
                 }
+
+                finalResult += result;
+                matchCount[strings.indexOf(list)] = counter;
+
+            }
             System.out.println(Arrays.toString(matchCount));
             for (int i = 0; i < cardCount.length; i++) {
                 cardCount[i] = 1;
@@ -103,39 +85,8 @@ public class Puzzle04 {
                 finalCardCount += cardCount[i];
             }
 
-<<<<<<< HEAD
-            for (int i = 0; i < matches.length; i++) {
-                clonMatches[i] = matches[i];
-            }
-            int[] cardCound = new int[matches.length];
-            for (int i = 0; i < cardCound.length; i++) {
-                cardCound[i] = 1;
-            }
-            int totalCards = 0;
-            for (int k = 0; k < matches.length; k++) {
-                for (int i = 1; i < matches[k] + 1; i++) {
-                    cardCound[k]++;
-                    clonMatches[k + i] += matches[k + i] * cardCound[k + i];
-                }
-            }
-            for (int i = 0; i < 6; i++) {
-                totalCards += cardCound[i];
-            }
-            int totalMatches = 0;
-            int totalClonMatches = 0;
-            for (int i = 0; i < matches.length; i++) {
-                totalMatches += matches[i];
-            }
-            for (int i = 0; i <clonMatches.length; i++) {
-                totalClonMatches += clonMatches[i];
-            }
-            System.out.println(totalCards);
-            System.out.println(totalMatches);
-            System.out.println(totalClonMatches);
-=======
             System.out.println(Arrays.toString(cardCount));
             System.out.println(finalCardCount);
->>>>>>> bbbe5332d5721a102b27811adae93ec5077708f1
             System.out.println(finalResult);
         }
         catch (IOException e) {
@@ -143,4 +94,3 @@ public class Puzzle04 {
         }
     }
 }
-
