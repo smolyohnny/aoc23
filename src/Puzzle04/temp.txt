@@ -1,0 +1,10 @@
+String[] fixSpaces = new String[]{list.replace("  ", " ")};
+                String ababa = "";
+                for (int i = 0; i < fixSpaces.length; i++) {
+                    ababa += fixSpaces[i];
+                }
+                String[] strings1 = new String[]{ababa.replace("  ", " ")};
+                String awawa = "";
+                for (int i = 0; i < strings1.length; i++) {
+                    awawa += strings1[i];
+                }
