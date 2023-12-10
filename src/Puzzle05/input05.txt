@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-Time:      7  15   30
-Distance:  9  40  200
-=======
-seeds:
-79 14 55 13
+seeds: 79 14 55 13
 
 seed-to-soil map:
 50 98 2
@@ -36,4 +31,3 @@ temperature-to-humidity map:
 humidity-to-location map:
 60 56 37
 56 93 4
->>>>>>> bbbe5332d5721a102b27811adae93ec5077708f1
