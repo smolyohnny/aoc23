@@ -30,118 +30,98 @@ public class Puzzle05 {
             }
 
             for (int a = 0; a < seeds.length; a++) {
-                int j = 1;
-                        while (!list[j].contains("map")) {
-                            map1.add(list[j]);
-                            for (int k = 0; k < map1.size(); k++) {
-                                String[] xy = map1.get(k).split(" ");
-                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
-                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                    break;
-                                }
-                            }
-                            j++;
-                        }
-                        j++;
-                        System.out.println(seeds[a]);
-                        while (!list[j].contains("map")) {
-                            map1.clear();
-                            map1.add(list[j]);
-                            for (int k = 0; k < map1.size(); k++) {
-                                String[] xy = map1.get(k).split(" ");
-                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
-                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                    break;
-                                }
-                            }
-                            j++;
-                        }
-                        j++;
-                        System.out.println(seeds[a]);
-                        while (!list[j].contains("map")) {
-                            map1.clear();
-                            map1.add(list[j]);
-                            for (int k = 0; k < map1.size(); k++) {
-                                String[] xy = map1.get(k).split(" ");
-                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
-                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                    break;
-                                }
-                            }
-                            j++;
-                        }
-                        j++;
-                        System.out.println(seeds[a]);
-                        while (!list[j].contains("map")) {
-                            map1.clear();
-                            map1.add(list[j]);
-                            for (int k = 0; k < map1.size(); k++) {
-                                String[] xy = map1.get(k).split(" ");
-                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
-                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                    break;
-                                }
-                            }
-                            j++;
-                        }
-                        j++;
-                        System.out.println(seeds[a]);
-                        while (!list[j].contains("map")) {
-                            map1.clear();
-                            map1.add(list[j]);
-                            for (int k = 0; k < map1.size(); k++) {
-                                String[] xy = map1.get(k).split(" ");
-                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
-                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                    break;
-                                }
-                            }
-                            j++;
-                        }
-                        j++;
-                        System.out.println(seeds[a]);
-                        while (!list[j].contains("map")) {
-                            map1.clear();
-                            map1.add(list[j]);
-                            for (int k = 0; k < map1.size(); k++) {
-                                String[] xy = map1.get(k).split(" ");
-                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
-                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                    break;
-                                }
-                            }
-                            j++;
-                        }
-                        j++;
-                        System.out.println(seeds[a]);
-                        while (!list[j].contains("map")) {
-                            map1.clear();
-                            map1.add(list[j]);
-                            for (int k = 0; k < map1.size(); k++) {
-                                String[] xy = map1.get(k).split(" ");
-                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
-                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                    break;
-                                }
-                            }
-                            j++;
-                        }
-                        j++;
-                        System.out.println(seeds[a]);
-                        while (j != 26) {
-                            map1.clear();
-                            map1.add(list[j]);
-                            for (int k = 0; k < map1.size(); k++) {
-                                String[] xy = map1.get(k).split(" ");
-                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
-                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
-                                    break;
-                                }
-                            }
-                            j++;
-                        }
-                        System.out.println(seeds[a]);
+                int j = 3;
+                while (!list[j].contains("map")) {
+                    map1.clear();
+                    map1.add(list[j]);
+                    String[] xy = map1.get(0).split(" ");
+                    if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                        seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                        break;
                     }
+                    j++;
+                }
+                System.out.println(seeds[a]);
+                while (!list[j].contains("map")) {
+                    map1.clear();
+                    map1.add(list[j]);
+                    String[] xy = map1.get(0).split(" ");
+                    if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                        seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                        break;
+                    }
+                    j++;
+                }
+                System.out.println(seeds[a]);
+                while (!list[j].contains("map")) {
+                    map1.clear();
+                    map1.add(list[j]);
+                    String[] xy = map1.get(0).split(" ");
+                    if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                        seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                        break;
+                    }
+                    j++;
+                }
+                System.out.println(seeds[a]);
+                while (!list[j].contains("map")) {
+                    map1.clear();
+                    map1.add(list[j]);
+                    String[] xy = map1.get(0).split(" ");
+                    if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                        seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                        break;
+                    }
+                    j++;
+                }
+                System.out.println(seeds[a]);
+                while (!list[j].contains("map")) {
+                    map1.clear();
+                    map1.add(list[j]);
+                    String[] xy = map1.get(0).split(" ");
+                    if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                        seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                        break;
+                    }
+                    j++;
+                }
+                System.out.println(seeds[a]);
+                while (!list[j].contains("map")) {
+                    map1.clear();
+                    map1.add(list[j]);
+                    String[] xy = map1.get(0).split(" ");
+                    if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                        seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                        break;
+                    }
+                    j++;
+                }
+                System.out.println(seeds[a]);
+                while (!list[j].contains("map")) {
+                    map1.clear();
+                    map1.add(list[j]);
+                    String[] xy = map1.get(0).split(" ");
+                    if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                        seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                        break;
+                    }
+                    j++;
+                }
+                System.out.println(seeds[a]);
+                while (list[j].contains("map")) {
+                    j++;
+                    map1.clear();
+                    map1.add(list[j]);
+                    String[] xy = map1.get(0).split(" ");
+                    if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                        seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                        break;
+                    }
+                }
+                j++;
+                System.out.println(seeds[a]);
+            }
+            System.out.println(Arrays.toString(seeds));
 
 
 
