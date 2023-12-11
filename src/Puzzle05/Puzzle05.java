@@ -30,11 +30,9 @@ public class Puzzle05 {
             }
 
             for (int a = 0; a < seeds.length; a++) {
-                for (int j = 0; j < list.length + 1; j++) {
-                    if (list[j].contains("seed-to-soil map:")) {
-                        int i = 1;
-                        while (!list[j + i].contains("map")) {
-                            map1.add(list[j + i]);
+                int j = 1;
+                        while (!list[j].contains("map")) {
+                            map1.add(list[j]);
                             for (int k = 0; k < map1.size(); k++) {
                                 String[] xy = map1.get(k).split(" ");
                                 if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
@@ -42,11 +40,13 @@ public class Puzzle05 {
                                     break;
                                 }
                             }
-                            i++;
+                            j++;
                         }
-
-                        while (!list[j + i].contains("map")) {
-                            map1.add(list[j + i]);
+                        j++;
+                        System.out.println(seeds[a]);
+                        while (!list[j].contains("map")) {
+                            map1.clear();
+                            map1.add(list[j]);
                             for (int k = 0; k < map1.size(); k++) {
                                 String[] xy = map1.get(k).split(" ");
                                 if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
@@ -54,10 +54,13 @@ public class Puzzle05 {
                                     break;
                                 }
                             }
-                            i++;
+                            j++;
                         }
-                        while (!list[j + i].contains("map")) {
-                            map1.add(list[j + i]);
+                        j++;
+                        System.out.println(seeds[a]);
+                        while (!list[j].contains("map")) {
+                            map1.clear();
+                            map1.add(list[j]);
                             for (int k = 0; k < map1.size(); k++) {
                                 String[] xy = map1.get(k).split(" ");
                                 if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
@@ -65,10 +68,13 @@ public class Puzzle05 {
                                     break;
                                 }
                             }
-                            i++;
+                            j++;
                         }
-                        while (!list[j + i].contains("map")) {
-                            map1.add(list[j + i]);
+                        j++;
+                        System.out.println(seeds[a]);
+                        while (!list[j].contains("map")) {
+                            map1.clear();
+                            map1.add(list[j]);
                             for (int k = 0; k < map1.size(); k++) {
                                 String[] xy = map1.get(k).split(" ");
                                 if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
@@ -76,10 +82,13 @@ public class Puzzle05 {
                                     break;
                                 }
                             }
-                            i++;
+                            j++;
                         }
-                        while (!list[j + i].contains("map")) {
-                            map1.add(list[j + i]);
+                        j++;
+                        System.out.println(seeds[a]);
+                        while (!list[j].contains("map")) {
+                            map1.clear();
+                            map1.add(list[j]);
                             for (int k = 0; k < map1.size(); k++) {
                                 String[] xy = map1.get(k).split(" ");
                                 if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
@@ -87,10 +96,13 @@ public class Puzzle05 {
                                     break;
                                 }
                             }
-                            i++;
+                            j++;
                         }
-                        while (!list[j + i].contains("map")) {
-                            map1.add(list[j + i]);
+                        j++;
+                        System.out.println(seeds[a]);
+                        while (!list[j].contains("map")) {
+                            map1.clear();
+                            map1.add(list[j]);
                             for (int k = 0; k < map1.size(); k++) {
                                 String[] xy = map1.get(k).split(" ");
                                 if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
@@ -98,10 +110,13 @@ public class Puzzle05 {
                                     break;
                                 }
                             }
-                            i++;
+                            j++;
                         }
-                        while (!list[j + i].contains("map")) {
-                            map1.add(list[j + i]);
+                        j++;
+                        System.out.println(seeds[a]);
+                        while (!list[j].contains("map")) {
+                            map1.clear();
+                            map1.add(list[j]);
                             for (int k = 0; k < map1.size(); k++) {
                                 String[] xy = map1.get(k).split(" ");
                                 if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
@@ -109,23 +124,30 @@ public class Puzzle05 {
                                     break;
                                 }
                             }
-                            i++;
+                            j++;
                         }
-
+                        j++;
+                        System.out.println(seeds[a]);
+                        while (j != 26) {
+                            map1.clear();
+                            map1.add(list[j]);
+                            for (int k = 0; k < map1.size(); k++) {
+                                String[] xy = map1.get(k).split(" ");
+                                if (seeds[a] >= Integer.parseInt(xy[1]) && seeds[a] < (Integer.parseInt(xy[1]) + Integer.parseInt(xy[2]))) {
+                                    seeds[a] = (seeds[a] + Integer.parseInt(xy[0]) - Integer.parseInt(xy[1]));
+                                    break;
+                                }
+                            }
+                            j++;
+                        }
+                        System.out.println(seeds[a]);
                     }
 
-                    }
-                System.out.println(seeds[a]);
-            }
 
 
-
-            System.out.println(Arrays.toString(seeds));
-            System.out.println(Arrays.toString(seedToSoil));
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
+
     }
 }
