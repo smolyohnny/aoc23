@@ -11,6 +11,7 @@ public class Puzzle04 {
     public static void main(String[] args) {
         Path path = Path.of("src\\Puzzle04\\input04.txt");
         try {
+
             int finalResult = 0;
             int finalCardCount = 0;
             int[] cardCount = new int[214];
