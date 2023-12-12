@@ -48,6 +48,24 @@ public class Puzzle06 {
             }
             System.out.println(totalTimesBeaten);
 
+            //part 2
+            String time = String.valueOf(input.get(0))
+                    .trim()
+                    .replaceAll(" +", "")
+                    .replace("Time:", "");
+            String distance = String.valueOf(input.get(1))
+                    .trim()
+                    .replaceAll(" +", "")
+                    .replace("Distance:", "");
+
+            int timesBeaten = 0;
+            for (long j = 1; j < Integer.parseInt(time); j++) {
+                if (((Long.parseLong(time) - j) * j) > Long.parseLong(distance)) {
+                    timesBeaten++;
+                }
+            }
+            System.out.println(timesBeaten);
+
 
         } catch (Exception e) {
             throw new RuntimeException(e);
