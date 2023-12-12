@@ -56,7 +56,7 @@ public class Puzzle05 {
                     j += 2;
                 }
 
-                while (j != 34) {
+                while (j != 259) {
                     String[] xy = list[j].split(" ");
                     if (seeds[a] >= Long.parseLong(xy[1]) && seeds[a] < (Long.parseLong(xy[1]) + Long.parseLong(xy[2]))) {
                         seeds[a] = (seeds[a] + Long.parseLong(xy[0]) - Long.parseLong(xy[1]));
@@ -80,7 +80,7 @@ public class Puzzle05 {
                     j += 2;
                 }
 
-                while (j != 34) {
+                while (j != 259) {
                     String[] xy = list[j].split(" ");
                     if (allSeedsArr[a] >= Long.parseLong(xy[1]) && allSeedsArr[a] < (Long.parseLong(xy[1]) + Long.parseLong(xy[2]))) {
                         allSeedsArr[a] = (allSeedsArr[a] + Long.parseLong(xy[0]) - Long.parseLong(xy[1]));
